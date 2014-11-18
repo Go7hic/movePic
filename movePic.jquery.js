@@ -122,6 +122,6 @@
     }
     
     $.fn.extend({
-        movPic: movPic
+        movePic: movePic
     });
 })(jQuery)
