@@ -1,104 +1,101 @@
 (function($) {
     var defaults = {
+        shadeColor: "#FFD24D",
+        shadeBorder: "#FF8000",
+        shadeOpacity: 0.5,
         cursor: "move",
-        cursorColor: "ffd24d",
-        cursorBorder: "ff8000",
-        cursorOpacity: "0.5",
-
-        layerwidth: 400,
-        layerheight: 300,
-        layerborder: #ddd;
-        fade: true;
-
-        layerwidth: 1280;
-        layerheight: 960;
+        
+        layerWidth: 400,
+        layerHeight: 300,
+        layerBorder: "#DDD",
+        fade: true,
+        
+        largeWidth: 1280,
+        largeHeight: 960
     }
+    
+    var movPic = function(option) {
+        option = $.extend({}, defaults, option);
 
-    var enlarge = function(option) {
-        option = $.extend({}, defaults, option); 
         $(this).each(function() {
-            var self = $(this).css("position","relative");
+            var self = $(this).css("position", "relative");
             var img = self.children().first();
-
+            
             var ratio = {
-                x: img.width()/option.largewidth,
-                y: img.height()/option.largeheight
+                x: img.width() / option.largeWidth,
+                y: img.height() / option.largeHeight
             }
-            var ratio = {
-                x: img.width()/option.largewidth,
-                y: img.height()/option.largeheight
-            }
+            
             var size = {
-                shade: {
-                    width: option.layerwidth*ratio.x - 2,
-                    height: option.layerheight.height*ratio.y - 2
+                shade:
+                {
+                    width: option.layerWidth * ratio.x - 2,
+                    height: option.layerHeight * ratio.y - 2
                 }
             }
-
+            
             var shade = $("<div>").css({
-                "postion": "absolute",
+                "position": "absolute",
                 "left": "0px",
                 "top": "0px",
-                "background-color": option.shadecolor,
-                "border": "1px solid" + option.shadeborder,
+                "background-color": option.shadeColor,
+                "border": "1px solid " + option.shadeBorder,
                 "width": size.shade.width,
-                "height"； size.shade.height,
-                "opacity": option.shadeopacity,
+                "height": size.shade.height,
+                "opacity": option.shadeOpacity,
                 "cursor": option.cursor
             });
-
-            sahde.hide().appendTo(self);
-
+            shade.hide().appendTo(self);
+            
             var large = $("<img>").css({
-                "postion": "absolute",
+                "position": "absolute",
                 "display": "block",
-                "width": option.largewidth,
-                "height": option.largeheight,
-
+                "width": option.largeWidth,
+                "height": option.largeHeight
             });
-
             var layer = $("<div>").css({
-                "postion": "absolute",
+                "position": "absolute",
                 "left": self.width() + 5,
                 "top": 0,
-                "background-color": #111,
+                "background-color": "#111",
                 "overflow": "hidden",
-                "width": option.layerwidth,
-                "height": option.layerheight,
-                "border": "1px solid" + option.layerborder
+                "width": option.layerWidth,
+                "height": option.layerHeight,
+                "border": "1px solid " + option.layerBorder
             });
             large.attr("src", self.attr("href"));
             large.appendTo(layer);
             layer.hide().appendTo(self);
-
+            
             var half = {
-                x: size.sahde.width / 2,
-                y:size.shade.height / 2,
+                x: size.shade.width / 2,
+                y: size.shade.height / 2
             }
-
+            
             var area = {
                 width: self.innerWidth() - shade.outerWidth(),
                 height: self.innerHeight() - shade.outerHeight()
             }
-
-            var ofset = self.offset();
-
+            
+            var offset = self.offset();
+            
             var show = function() {
-                offset= self.offset();
-                sahde.show();
-                if(option.fade).layer.stop().fadeIn(300);
+                offset = self.offset();
+                shade.show();
+                if(option.fade) layer.stop().fadeIn(300);
                 else layer.show();
             }
-
+            
             var hide = function() {
                 shade.hide();
                 layer.hide();
             }
+            
             self.mousemove(function(e) {
                 var x = e.pageX - offset.left;
                 var y = e.pageY - offset.top;
-
-                if(x < 0||x > self.innerWidth()) return hide();
+                
+                if(x < 0 || x > self.innerWidth()) return hide();
                 if(y < 0 || y > self.innerHeight()) return hide();
                 
                 x = x - half.x;
@@ -109,23 +106,22 @@
                 if(x > area.width) x = area.width;
                 if(y > area.height) y = area.height;
                 
-                shade.css(
-                {
+                shade.css({
                     left: x,
                     top: y
                 });
                 
-                large.css(
-                {
+                large.css({
                     left: (0 - x / ratio.x),
                     top: (0 - y / ratio.y)
                 });
             })
-            .mouseenter(show);
+            .mouseenter(show)
             .mouseleave(hide);
         });
     }
+    
     $.fn.extend({
-        enlarge: enlarge
-    })
+        movPic: movPic
+    });
 })(jQuery)
