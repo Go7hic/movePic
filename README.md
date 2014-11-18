@@ -3,15 +3,19 @@ movePic
 一个鼠标移动到图片上显示放大效果的 jQuery 插件，很多电商网站都有这个效果。
 
 ### DEMO
+
 http://blog.yongyuan.us/movePic/
 
-###使用
+### 使用
 
 1.引入 jQuery 文件
+
 2.引入 movePic.jquery.js文件
+
 3.具体示例
 
 使用插件默认的图片大小和颜色
+
 ```html
 <div class="movePic">
     <a id="demo" href="image.jpg"><img src="image.jpg" alt=""></a>
