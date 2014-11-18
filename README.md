@@ -14,7 +14,6 @@ http://blog.yongyuan.us/movePic/
 
 3.具体示例
 
-使用插件默认的图片大小和颜色
 
 ```html
 <div class="movePic">
@@ -22,6 +21,8 @@ http://blog.yongyuan.us/movePic/
 </div>
 ```
 给 a 标签链接引入一张放大后的图片(因为后面放大显示的那张图片就是引用a标签href里的图片)，img标签里的图片可以找一张小一点的代替，这里为了方便选用同一张照片演示。
+
+使用插件默认的图片大小和颜色
 
 ```javascript
  $(function () {
