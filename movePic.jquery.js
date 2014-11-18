@@ -14,7 +14,7 @@
         largeHeight: 960
     }
     
-    var movPic = function(option) {
+    var movePic = function(option) {
         option = $.extend({}, defaults, option);
 
         $(this).each(function() {
