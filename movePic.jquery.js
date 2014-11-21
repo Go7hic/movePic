@@ -87,8 +87,7 @@
                 shade.show();
                 if(option.fade) {
                     layer.stop().fadeIn(300);
-                }
-                else {
+                } else {
                     layer.show();
                 }
             }
@@ -102,16 +101,28 @@
                 var x = e.pageX - offset.left;
                 var y = e.pageY - offset.top;
 
-                if(x < 0 || x > self.innerWidth()) return hide();
-                if(y < 0 || y > self.innerHeight()) return hide();
+                if(x < 0 || x > self.innerWidth()) {
+                    return hide();
+                }
+                if(y < 0 || y > self.innerHeight()) {
+                    return hide();
+                }
 
                 x = x - half.x;
                 y = y - half.y;
 
-                if(x < 0) x = 0;
-                if(y < 0) y = 0;
-                if(x > area.width) x = area.width;
-                if(y > area.height) y = area.height;
+                if (x < 0) {
+                    x = 0;
+                }
+                if (y < 0) {
+                    y = 0;
+                }
+                if (x > area.width) {
+                    x = area.width;
+                }
+                if (y > area.height) {
+                    y = area.height;
+                }
 
                 shade.css({
                     left: x,
