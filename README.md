@@ -10,7 +10,7 @@ http://blog.yongyuan.us/movePic/
 
 1.引入 jQuery 文件
 
-2.引入 movePic.jquery.js文件
+2.引入 jquery.movePic.js文件
 
 3.具体示例
 
