@@ -4,7 +4,7 @@ movePic
 
 ### DEMO
 
-http://blog.yongyuan.us/movePic/
+http://yongyuan.us/demo/movePic
 
 ### 使用
 
