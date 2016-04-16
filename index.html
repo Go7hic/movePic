@@ -7,24 +7,26 @@
   </head>
   <body>
     <div class="movePic">
-    <a id="demo" href="image.jpg"><img src="image.jpg" alt=""></a>
-</div>
-<script type="text/javascript">
-  $("#demo").movePic({
-      // 鼠标样式变量
-        shadeColor: "#57ad68",
-        shadeBorder: "#57ad68",
-        shadeOpacity: 0.5,
-        cursor: "move",
-        // 大图的样式变量
-        layerWidth: 400,
-        layerHeight: 300,
-        layerBorder: "#ddd",
-        fade: true,
+      <a id="demo" href="image.jpg"><img src="image.jpg" alt=""></a>
+    </div>
+    <script type="text/javascript">
+      $(function () {
+        $("#demo").movePic({
+          // 鼠标样式变量
+          shadeColor: "#57ad68",
+          shadeBorder: "#57ad68",
+          shadeOpacity: 0.5,
+          cursor: "move",
+          // 大图的样式变量
+          layerWidth: 400,
+          layerHeight: 300,
+          layerBorder: "#ddd",
+          fade: true,
 
-        largeWidth: 1280,
-        largeHeight: 960
-});
-</script>
+          largeWidth: 1280,
+          largeHeight: 960
+        });
+      })
+    </script>
   </body>
 </html>
