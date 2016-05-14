@@ -17,10 +17,10 @@ http://yongyuan.us/demo/movePic
 
 ```html
 <div class="movePic">
-    <a id="demo" href="image.jpg"><img src="image.jpg" alt=""></a>
+    <div id="demo" data-src="image.jpg" style="width: 200px"><img src="image.jpg" alt=""></div>
 </div>
 ```
-给 a 标签链接引入一张放大后的图片(因为后面放大显示的那张图片就是引用a标签href里的图片)，img标签里的图片可以找一张小一点的代替，这里为了方便选用同一张照片演示。
+建议设置拥有 data-src 标签的宽度和里面 img 宽度一样 
 
 使用插件默认的图片大小和颜色
 
