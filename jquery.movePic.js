@@ -66,7 +66,7 @@
                 "height": option.layerHeight,
                 "border": "1px solid " + option.layerBorder
             });
-            large.attr("src", self.attr("href"));
+            large.attr("src", self.attr("data-src"));
             large.appendTo(layer);
             layer.hide().appendTo(self);
 
